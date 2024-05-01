@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Castoro";
+  src: url("/fonts/CastoroTitling-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+:root {
+  --main-margin: 20px;
+  --main-color: white;
+  --main-bg-color: #1b1b32;
+  --additional-bg-color: #3b3b4f;
+  --border-color: #f5f6f7;
+  --main-font: "Lato", Arial, Helvetica, sans-serif;
+  --additional-font: "Castoro", Verdana, Geneva, Tahoma, sans-serif;
+  --app-font-size: 40px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  color: var(--main-color);
+  height: 100vh;
+  background-color: var(--main-bg-color);
+  margin: 0;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--additional-font);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  max-width: 350px;
+  font-size: 36px;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.app-wrapper {
+  max-width: 500px;
+}
+
+.form {
+  background-color: var(--additional-bg-color);
+  border: 3px solid var(--border-color);
+}
+
+label {
+  font-family: var(--main-font);
+}
+
+fieldset {
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  margin: 10px 20px;
+}
+
+input {
+  display: block;
+  margin: 10px 0;
+  padding: 6px 12px;
+  font-size: var(--app-font-size);
+  background-color: var(--main-bg-color);
+  width: 93%;
+  border: 1px solid var(--border-color);
+  color: var(--main-color);
+}
+
+.convert-btn {
+  background-image: linear-gradient(#fecc4c, #ffac33);
+  border: 3px solid #feac32;
+  font-size: 23px;
+  padding: 10px 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.output {
+  padding: 15px;
+  margin-top: 25px;
+  border: 3px solid var(--border-color);
+  background-color: var(--additional-bg-color);
+  text-align: center;
+  font-size: var(--app-font-size);
+  font-family: var(--main-font);
+}
+
+.hidden {
+  display: none;
+}
