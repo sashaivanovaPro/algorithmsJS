@@ -6,25 +6,21 @@ const convertBtn = document.getElementById("convert-btn");
 const romanDigitsArray = [
   {
     range: "units",
-    length: 1,
     one: "I",
     five: "V",
   },
   {
     range: "tens",
-    length: 2,
     one: "X",
     five: "L",
   },
   {
     range: "hundreds",
-    length: 3,
     one: "C",
     five: "D",
   },
   {
     range: "thousands",
-    length: 4,
     one: "M",
     five: "",
   },
@@ -51,7 +47,7 @@ const checkUserInput = () => {
 };
 
 let romanNumber = [];
-// empty array where pass converted roman digits
+// empty array where to pass converted roman digits
 
 const convertToRoman = (number) => {
   let romanVersion = null;
@@ -61,38 +57,47 @@ const convertToRoman = (number) => {
   let numberArray = number.toString().split("");
   //array of input digits
   // console.log(arabicNumberLength, numberArray);
+
   if (arabicNumberLength === 0) {
     renderResult(romanNumber);
     return;
   } else {
     let convertNumber = numberArray[0];
     // console.log(convertNumber);
-    if (convertNumber === "1") {
-      romanVersion = romanDigitsArray[arabicNumberLength - 1].one;
-      // console.log(arabicNumberLength, romanVersion);
-    } else if (convertNumber === "5") {
-      romanVersion = romanDigitsArray[arabicNumberLength - 1].five;
-    } else if (convertNumber === "9") {
-      romanVersion =
-        romanDigitsArray[arabicNumberLength - 1].one +
-        romanDigitsArray[arabicNumberLength].one;
-    } else if (convertNumber === "2" || convertNumber === "3") {
-      romanVersion =
-        romanDigitsArray[arabicNumberLength - 1].one.repeat(convertNumber);
-    } else if (convertNumber === "4") {
-      romanVersion =
-        romanDigitsArray[arabicNumberLength - 1].one +
-        romanDigitsArray[arabicNumberLength - 1].five;
-    } else if (
-      convertNumber === "6" ||
-      convertNumber === "7" ||
-      convertNumber === "8"
-    ) {
-      romanVersion =
-        romanDigitsArray[arabicNumberLength - 1].five +
-        romanDigitsArray[arabicNumberLength - 1].one.repeat(convertNumber - 5);
-    } else {
-      romanVersion = "";
+    switch (convertNumber) {
+      case "1":
+        romanVersion = romanDigitsArray[arabicNumberLength - 1].one;
+        break;
+      case "5":
+        romanVersion = romanDigitsArray[arabicNumberLength - 1].five;
+        break;
+      case "9":
+        romanVersion =
+          romanDigitsArray[arabicNumberLength - 1].one +
+          romanDigitsArray[arabicNumberLength].one;
+        break;
+      case "2":
+      case "3":
+        romanVersion =
+          romanDigitsArray[arabicNumberLength - 1].one.repeat(convertNumber);
+        break;
+      case "4":
+        romanVersion =
+          romanDigitsArray[arabicNumberLength - 1].one +
+          romanDigitsArray[arabicNumberLength - 1].five;
+        break;
+      case "6":
+      case "7":
+      case "8":
+        romanVersion =
+          romanDigitsArray[arabicNumberLength - 1].five +
+          romanDigitsArray[arabicNumberLength - 1].one.repeat(
+            convertNumber - 5
+          );
+        break;
+      default:
+        romanVersion = "";
+        break;
     }
     romanNumber.push(romanVersion);
     convertToRoman(number.toString().split("").slice(1).join(""));
