@@ -64,3 +64,19 @@ const insertionSort = (array) => {
 };
 
 sortButton.addEventListener("click", sortInputArray);
+
+//  short way to use conditionals without if
+
+// && executes second part when first condition is true
+
+// || executes second part when first condition is false
+
+const checker = (a) => {
+  // if (a > 5) {
+  //   console.log("hi");
+  // }
+  a > 5 && console.log("hi");
+  a < 3 || console.log("bye");
+};
+
+checker(6); // in console we have "hi" "bye"
